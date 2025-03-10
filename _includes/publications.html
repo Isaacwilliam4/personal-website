@@ -1,0 +1,22 @@
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Publications</h2>
+<p></p>
+<div class="mb-4">
+  <ul class="list-unstyled {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
+    {% for publication in site.publications %}
+      <li class="mb-4">
+        <h5 class="mb-1 {% if site.style == 'dark' %}text-white{% else %}text-dark{% endif %}">
+          <a href="{{ publication.link }}" target="_blank" class="text-decoration-none {% if site.style == 'dark' %}text-white{% else %}text-dark{% endif %}">
+            {{ publication.title }}
+          </a>
+        </h5>
+        <p class="mb-1 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
+          {% if publication.authors %}
+            <strong>Authors:</strong> {{ publication.authors | join: ', ' }}<br>
+          {% endif %}
+          <strong>Published in:</strong> {{ publication.journal }}<br>
+          <strong>Year:</strong> {{ publication.year }}<br>
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
